@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class ClickManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] int currency, value;
+    GameObject gameManagerObject;
+    GameManager gameManager;
+
     void Start()
     {
-        
+        gameManagerObject = GameObject.Find("GameManager");
+        gameManager = gameManagerObject.GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Click()
     {
-        
+        gameManager.ModifyCurrency(currency, value);
     }
 }
